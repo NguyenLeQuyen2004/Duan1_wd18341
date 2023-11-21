@@ -28,6 +28,7 @@
 <!-- <script type="text/javascript" src="/assets/files/assets/js/script.min.js"></script> -->
 <script src="/assets/files/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script type="text/javascript" src="/assets/files/assets/js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     $(function () {
         $('#simpletable').DataTable();

@@ -20,19 +20,39 @@ class SanphamController extends Controller
         $categories = (new Category())->all();
         $this->render('admin/sanpham/create',  ["categories" => $categories] );
     }
-
+    //thêm mới
     public function create() {
         if (isset($_POST['btn-submit'])) { 
-            $target_dir = "src/Views/img/";
-            $target_file = $target_dir . basename($_FILES["image"]["name"]);
-            move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+            // $target_dir = "/../../../img/";
+            // $target_file = $target_dir . basename($_FILES["image"]["name"]);
+            // move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
             $data = [
                 'name' => $_POST['name'],
                 'price'=> $_POST['price'],
-                'img'=> $target_file,
+                // 'img'=> $target_file,
                 'mota'=> $_POST['mota'],
                 'iddm'=> $_POST['iddm'],
             ];
+
+            $data['img'] = null;
+            $img = $_FILES['img'] ?? null;
+            if ($img) {
+
+                // Đường dẫn lưu DB vì thư mục upload cùng cấp với index.php
+                // Khi lưu vào DB, chú ý là trước uploads có dấu /
+                $pathSaveDB = '/uploads/' . $img['name'];
+
+                // Đường dẫn upload có thêm __DIR__ . '/../../../'
+                // vì File ProductController của mình đang cách thư mục uploads 3 cấp
+                // Nên sẽ thấy có 3 lần ../
+                // __DIR__ là 2 const mặc định của PHP để lấy ra đường dẫn thư mục hiện tại của ProductController 
+                $pathUpload = __DIR__ . '/../../../uploads/' . $img['name'];
+
+                if (move_uploaded_file($img['tmp_name'], $pathUpload)) { 
+                    $data['img'] = $pathSaveDB;
+                } 
+            }
+
             
             (new san_pham)->insert($data);
 
@@ -40,20 +60,38 @@ class SanphamController extends Controller
         }
         
     }
-
+    // cập nhật
     public function update() {
         if (isset($_POST['btn-submit'])) { 
             $data = [
                 'name' => $_POST['name'],
                 'price' => $_POST['price'],
-                'img' => $_FILES['img'],
+                // 'img' => $_FILES['img'],
                 'mota' => $_POST['mota'],
             ];
+            $data['img'] = $_POST['img_current'];
+            $img = $_FILES['img'] ?? null;
+            $flag = false;
+            if ($img) {
 
+                $pathSaveDB = '/uploads/' . $img['name'];
+                $pathUpload = __DIR__ . '/../../../uploads/' . $img['name'];
+
+                if (move_uploaded_file($img['tmp_name'], $pathUpload)) { 
+                    $data['img'] = $pathSaveDB;
+                    $flag = true;
+                } 
+            }
             $conditions = [
                 ['id', '=', $_GET['id']]
             ];
+            if ($flag) {
 
+                // Xóa file dùng hàm unlink 
+                // Path file cũng phải giống như $pathUpload
+                $pathFile = __DIR__ .'/../../..'. $_POST['img_current'];
+                unlink($pathFile);
+            }
             (new san_pham)->update($data, $conditions);
         }
 
@@ -61,13 +99,16 @@ class SanphamController extends Controller
 
         $this->render('admin/sanpham/index', ['san_pham' => $san_pham]);
     }
-
+    // xóa
     public function delete() {
         $conditions = [
             ['id', '=', $_GET['id']]
         ];
 
         (new san_pham)->delete($conditions);
+        $pathFile = __DIR__ .'/../../..'. $_POST['img'];
+        unlink($pathFile);
+
 
         header('Location: /admin/sanpham');
     }

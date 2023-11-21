@@ -33,7 +33,7 @@
                                     <li class>
                                         <a href="/admin/sanpham" class="waves-effect waves-dark">
                                             <span class="pcoded-micon">
-                                                <i class="feather icon-layers"></i>
+                                                <i class="feather icon-clipboard"></i>
                                             </span>
                                             <span class="pcoded-mtext">Quản lý Sản phẩm</span>
                                         </a>
