@@ -52,36 +52,19 @@
                                     <label for="noidung">Nội dung</label>
                                     <input type="text" name="noidung" class="form-control">
 
-                                    <label for="iduser" class="mt-3">ID User</label><br>
-                                    <select name="iduser" id="iduser" class="form-control">
-                                        <?php foreach ($users as $user) : ?>
-                                            <option value="<?= $user['id'] ?>"><?= $user['name'] ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
+            <label for="iduser" class="mt-3">ID User </label>
+            <input type="text" name="iduser" class="form-control">
 
-                                    <label for="idpro" class="mt-3">ID Pro</label><br>
-                                    <select name="idpro" id="idpro" class="form-control">
-                                        <?php foreach ($sanpham as $San_pham) : ?>
-                                            <option value="<?= $San_pham['id'] ?>"><?= $San_pham['name'] ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
+            <label for="idpro" class="mt-3">ID Pro</label>
+            <input type="text" name="idpro" class="form-control">
 
-                                    <label for="ngaybinhluan" class="mt-3">Ngày Bình Luận</label>
-                                    <input type="date" name="ngaybinhluan" class="form-control">
+            <label for="ngaybinhluan" class="mt-3">Ngày Bình Luận</label>
+            <input type="date" name="ngaybinhluan" class="form-control">
 
-                                    <button type="submit" name="btn-submit" class="btn btn-info mt-3">Submit</button>
-                                    <a href="/admin/users" class="btn btn-primary mt-3">Quay lại d/s</a>
-                                </form>
-                            </div>
-                        </body>
-
-                        </html>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
+            <button type="submit" name="btn-submit" class="btn btn-info mt-3">Submit</button>
+            <a href="/admin/users" class="btn btn-primary mt-3">Quay lại d/s</a>
+        </form>
     </div>
-</div>
-</div>
+</body>
+
+</html>
