@@ -38,6 +38,14 @@
                                             <span class="pcoded-mtext">Quản lý Sản phẩm</span>
                                         </a>
                                     </li>
+                                    <li class>
+                                        <a href="/admin/binhluan" class="waves-effect waves-dark">
+                                            <span class="pcoded-micon">
+                                                <i class="feather icon-clipboard"></i>
+                                            </span>
+                                            <span class="pcoded-mtext">Quản lý Bình luận</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             
                             </div>

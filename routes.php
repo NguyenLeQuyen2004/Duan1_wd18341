@@ -6,6 +6,7 @@ use Ductong\BaseMvc\Controllers\Admin\CategoryController;
 use Ductong\BaseMvc\Controllers\Admin\DashboardController;
 
 use Ductong\BaseMvc\Controllers\Admin\SanphamController;
+use Ductong\BaseMvc\Controllers\Admin\BinhluanController;
 
 use Ductong\BaseMvc\Controllers\Client\HomeController;
 use Ductong\BaseMvc\Router;
@@ -31,4 +32,15 @@ $router->addRoute('/admin/users', UserController::class, 'index');
 $router->addRoute('/admin/users/create', UserController::class, 'create');
 $router->addRoute('/admin/users/update', UserController::class, 'update');
 $router->addRoute('/admin/users/delete', UserController::class, 'delete');
+
+$router->addRoute('/admin/binhluan', BinhluanController::class,'index');
+$router->addRoute('/admin/binhluan/create', BinhluanController::class,'create');
+$router->addRoute('/admin/binhluan/update', BinhluanController::class,'update');
+$router->addRoute('/admin/binhluan/delete', BinhluanController::class,'delete');
+
+$router->addRoute('/client/login/login', HomeController::class, 'login');
+$router->addRoute('/client/login/register', HomeController::class,'register');
+
+
+
  ?>

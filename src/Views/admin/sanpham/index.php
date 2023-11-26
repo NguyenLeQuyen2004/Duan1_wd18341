@@ -64,7 +64,8 @@
                                         <tr>
                                             <td><?= ($san_pham['id']) ?></td>
                                             <td><?= ($san_pham['name']) ?></td>
-                                            <td><?= ($san_pham['iddm']) ?></td>
+                                            <!-- <td><?= ($san_pham['iddm']) ?></td> -->
+                                            <td><?= $arrayCategoryIdName[$san_pham['iddm']] ?></td>
                                             <td><?= ($san_pham['price']) ?></td>
                                             <td>
                                                 <img src="<?= $san_pham['img'] ?>" alt="" width="100px">
@@ -79,7 +80,7 @@
                                         </tr>
                                     <?php endforeach; ?>
                                 </table>
-                                ```
+                               
                             </div>
                         </body>
 
