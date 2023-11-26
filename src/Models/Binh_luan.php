@@ -13,3 +13,4 @@ class Binh_luan extends Model {
         'ngaybinhluan',
     ];
 
+}
