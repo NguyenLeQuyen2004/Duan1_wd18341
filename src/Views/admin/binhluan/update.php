@@ -1,6 +1,4 @@
-
-<!DOCTYPE html>
-<html lang="en">
+<div class="pcoded-content">
 
     <div class="page-header card">
         <div class="row align-items-end">
