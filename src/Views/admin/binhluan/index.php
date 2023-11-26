@@ -35,7 +35,7 @@
 
                         <head>
                             <meta charset="UTF-8">
-                            <title>Product List</title>
+                            <title>Category List</title>
 
                             <!-- Latest compiled and minified CSS -->
                             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -46,7 +46,7 @@
 
                         <body>
                             <div class="container">
-                                <h1>Product List</h1>
+                                <h1>Category List</h1>
 
                                 <a href="/admin/binhluan/create" class="btn btn-info">Thêm</a>
 
@@ -63,8 +63,8 @@
                                         <tr>
                                             <td><?= $Binh_luan['id'] ?></td>
                                             <td><?= $Binh_luan['noidung'] ?></td>
-                                            <td><?= $Binh_luan['iduser'] ?></td>
-                                            <td><?= $Binh_luan['idpro'] ?></td>
+                                            <td><?= $arrayUserIdName[$Binh_luan['iduser']] ?></td>
+                                            <td><?= $arraySanPhamIdName[$Binh_luan['idpro']] ?></td>
                                             <td><?= $Binh_luan['ngaybinhluan'] ?></td>
                                             <td>
                                                 <a href="/admin/binhluan/update?id=<?= $Binh_luan['id'] ?>" class="btn btn-primary btn-sm">Cập nhật</a>
@@ -75,8 +75,8 @@
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
-                                </table>
 
+                                </table>
                             </div>
                         </body>
 
