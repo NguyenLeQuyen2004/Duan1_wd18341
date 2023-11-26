@@ -28,12 +28,21 @@ class BinhluanController extends Controller {
                 'ngaybinhluan' => $_POST['ngaybinhluan'],
             ];
 
+
            
 
             header('Location: /admin/binhluan');
         }
 
         $this->renderAdmin("binhluan/create");
+
+            (new Binh_luan())->insert($data);
+
+            header('Location: /admin/binhluan');
+        }
+        $binh_luan = (new Binh_luan())->all();
+        $this->render('admin/binhluan/create', ['Binh_luan' => $binh_luan]);;
+
     }
 
     /* Cập nhật */

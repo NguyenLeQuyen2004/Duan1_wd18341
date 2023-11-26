@@ -12,4 +12,4 @@ class Binh_luan extends Model {
         'idpro',
         'ngaybinhluan',
     ];
-}
+
