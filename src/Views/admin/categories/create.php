@@ -47,7 +47,7 @@
 
                         <body>
                             <div class="container">
-                                <h1>Tạo mới Category</h1>
+                                <h1>Tạo mới Danh mục</h1>
 
                                 <form action="" method="post">
                                     <label for="name">Name</label>
