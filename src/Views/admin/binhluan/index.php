@@ -57,6 +57,7 @@
                                         <th>ID User</th>
                                         <th>ID Pro</th>
                                         <th>Ngày Bình Luận</th>
+                                        <th>Action</th>
                                     </tr>
 
                                     <?php foreach ($binhluan as $Binh_luan) : ?>

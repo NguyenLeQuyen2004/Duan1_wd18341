@@ -46,7 +46,7 @@
 
                         <body>
                             <div class="container">
-                                <h1>Cập nhật Category</h1>
+                                <h1>Cập nhật Danh mục</h1>
 
                                 <form action="" method="post">
                                     <label for="name">Name</label>

@@ -13,11 +13,11 @@
 	<link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
 	<!-- Stylesheets -->
-	<link rel="stylesheet" href="css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="css/font-awesome.min.css"/>
-	<link rel="stylesheet" href="css/owl.carousel.css"/>
-	<link rel="stylesheet" href="css/style.css"/>
-	<link rel="stylesheet" href="css/animate.css"/>
+	<link rel="stylesheet" href="./css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="./css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="./css/owl.carousel.css"/>
+	<link rel="stylesheet" href="./css/style.css"/>
+	<link rel="stylesheet" href="./css/animate.css"/>
 
 
 	<!--[if lt IE 9]>
@@ -53,8 +53,8 @@
 				<li><a href="#">Woman</a></li>
 				<li><a href="#">Man</a></li>
 				<li><a href="#">LookBook</a></li>
-				<li><a href="#">Blog</a></li>
 				<li><a href="contact.html">Contact</a></li>
+				<li><a href="#">Login</a></li>
 			</ul>
 		</div>
 	</header>

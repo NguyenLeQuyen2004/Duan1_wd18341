@@ -46,6 +46,14 @@
                                             <span class="pcoded-mtext">Quản lý Bình luận</span>
                                         </a>
                                     </li>
+                                    <li class>
+                                        <a href="/admin/thongke" class="waves-effect waves-dark">
+                                            <span class="pcoded-micon">
+                                                <i class="feather icon-clipboard"></i>
+                                            </span>
+                                            <span class="pcoded-mtext">Quản lý Thống kê</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             
                             </div>
