@@ -4,7 +4,7 @@ namespace Ductong\BaseMvc\Models;
 
 use Ductong\BaseMvc\Model;
 
-class Binh_luan extends Model {
+class Comment  extends Model {
     protected $table = 'binhluan';
     protected $columns = [
         'noidung',
@@ -12,5 +12,4 @@ class Binh_luan extends Model {
         'idpro',
         'ngaybinhluan',
     ];
-
 }

@@ -1,20 +1,18 @@
-<?php
+<?php 
 
 namespace Ductong\BaseMvc\Controllers\Admin;
 
 use Ductong\BaseMvc\Controller;
-use Ductong\BaseMvc\Models\San_pham;
-
 use Ductong\BaseMvc\Models\Category;
+use Ductong\BaseMvc\Models\Product;
 
-class SanphamController extends Controller
-{
-    /*
-        Đây là hàm hiển thị danh sách user
-    */
-    public function index()
-    {
-        $sanpham = (new san_pham)->all();
+class ProductController extends Controller {
+
+    
+    
+    /* Lấy danh sách */
+    public function index() {
+        $products = (new Product())->all();
         $categories = (new Category())->all();
 
         // Mảng này có cấu trúc, key là id danh mục, value là tên danh mục
@@ -24,32 +22,24 @@ class SanphamController extends Controller
             $arrayCategoryIdName[$category['id']] = $category['name'];
         }
 
-        $this->renderAdmin(
-            "sanpham/index",
+        $this->renderAdmin("products/index", 
             [
-                "sanpham" => $sanpham,
+                "products" => $products, 
                 "arrayCategoryIdName" => $arrayCategoryIdName
             ]
         );
     }
-    public function createPage()
-    {
-        $categories = (new Category())->all();
-        $this->render('admin/sanpham/create',  ["categories" => $categories]);
-    }
-    //thêm mới
-    public function create()
-    {
-        if (isset($_POST['btn-submit'])) {
-            // $target_dir = "/../../../img/";
-            // $target_file = $target_dir . basename($_FILES["image"]["name"]);
-            // move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+
+    /* Thêm mới */
+    public function create() {
+        if (isset($_POST["btn-submit"])) { 
             $data = [
+                'category_id' => $_POST['category_id'],
                 'name' => $_POST['name'],
                 'price' => $_POST['price'],
-                // 'img'=> $target_file,
-                'mota' => $_POST['mota'],
-                'iddm' => $_POST['iddm'],
+                'price_sale' => $_POST['price_sale'] ?: 0,
+                'description' => $_POST['description'],
+                'is_active' => $_POST['is_active'],
             ];
 
             $data['img'] = null;
@@ -66,28 +56,34 @@ class SanphamController extends Controller
                 // __DIR__ là 2 const mặc định của PHP để lấy ra đường dẫn thư mục hiện tại của ProductController 
                 $pathUpload = __DIR__ . '/../../../uploads/' . $img['name'];
 
-                if (move_uploaded_file($img['tmp_name'], $pathUpload)) {
+                if (move_uploaded_file($img['tmp_name'], $pathUpload)) { 
                     $data['img'] = $pathSaveDB;
-                }
+                } 
             }
 
+            (new Product())->insert($data);
 
-            (new san_pham)->insert($data);
-
-            header('Location: /admin/sanpham');
+            header('Location: /admin/products');
         }
+
+        $categories = (new Category())->all();
+
+        $this->renderAdmin("products/create", ["categories" => $categories]);
     }
-    // cập nhật
-    public function update()
-    {
-        if (isset($_POST['btn-submit'])) {
+
+    /* Cập nhật */
+    public function update() {
+
+        if (isset($_POST["btn-submit"])) { 
             $data = [
+                'category_id' => $_POST['category_id'],
                 'name' => $_POST['name'],
                 'price' => $_POST['price'],
-                // 'img' => $_FILES['img'],
-                'mota' => $_POST['mota'],
-                'iddm' => $_POST['iddm'],
+                'price_sale' => $_POST['price_sale'] ?: 0,
+                'description' => $_POST['description'],
+                'is_active' => $_POST['is_active'],
             ];
+
             $data['img'] = $_POST['img_current'];
             $img = $_FILES['img'] ?? null;
             $flag = false;
@@ -96,43 +92,44 @@ class SanphamController extends Controller
                 $pathSaveDB = '/uploads/' . $img['name'];
                 $pathUpload = __DIR__ . '/../../../uploads/' . $img['name'];
 
-                if (move_uploaded_file($img['tmp_name'], $pathUpload)) {
+                if (move_uploaded_file($img['tmp_name'], $pathUpload)) { 
                     $data['img'] = $pathSaveDB;
                     $flag = true;
-                }
+                } 
             }
 
             $conditions = [
                 ['id', '=', $_GET['id']],
             ];
 
-            (new san_pham())->update($data, $conditions);
-
+            (new Product())->update($data, $conditions);
+            
             if ($flag) {
 
                 // Xóa file dùng hàm unlink 
                 // Path file cũng phải giống như $pathUpload
-                $pathFile = __DIR__ . '/../../..' . $_POST['img_current'];
+                $pathFile = __DIR__ .'/../../..'. $_POST['img_current'];
                 unlink($pathFile);
             }
         }
-        $san_pham = (new san_pham)->findOne($_GET['id']);
-        $categories = (new Category())->all();
 
-        $this->render('admin/sanpham/update', ['san_pham' => $san_pham, 'categories' => $categories]);
+        $categories = (new Category())->all();
+        $product = (new Product())->findOne($_GET["id"]);
+
+        $this->renderAdmin("products/update", ["product" => $product, 'categories' => $categories]);
     }
-    // xóa
-    public function delete()
-    {
+
+    /* Xóa */
+    public function delete() {
         $conditions = [
-            ['id', '=', $_GET['id']]
+            ['id', '=', $_GET['id']],
         ];
 
-        (new san_pham)->delete($conditions);
-        $pathFile = __DIR__ . '/../../..' . $_POST['img'];
+        (new Product())->delete($conditions);
+
+        $pathFile = __DIR__ .'/../../..'. $_POST['img'];
         unlink($pathFile);
 
-
-        header('Location: /admin/sanpham');
+        header('Location: /admin/products');
     }
 }

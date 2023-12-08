@@ -3,23 +3,27 @@
 namespace Ductong\BaseMvc\Models;
 
 use Ductong\BaseMvc\Model;
-include "Category.php";
 
-class san_pham extends Model {
-    protected $table = 'sanpham';
+class Product extends Model {
+    protected $table = 'products';
     protected $columns = [
+        'category_id',
         'name',
         'price',
+        'price_sale',
         'img',
-        'mota',
-        'iddm',
+        'description',
+        'is_active',
     ];
-     // Lấy ra 10 sản phẩm mới nhất, được order by theo ID sản phẩm
-     public function getLatestLimit10() {
+
+    // Lấy ra 10 sản phẩm mới nhất, được order by theo ID sản phẩm
+    public function getLatestLimit10() {
         $sql = "
             SELECT 
+                p.id p_id,
                 p.name p_name,
                 p.price p_price,
+                p.price_sale p_price_sale,
                 p.img p_img,
                 c.id c_id,
                 c.name c_name
@@ -46,6 +50,7 @@ class san_pham extends Model {
             SELECT 
                 p.name p_name,
                 p.price p_price,
+                p.price_sale p_price_sale,
                 p.img p_img,
                 c.id c_id,
                 c.name c_name
@@ -69,4 +74,5 @@ class san_pham extends Model {
 
         return $stmt->fetchAll();
     }
+    
 }

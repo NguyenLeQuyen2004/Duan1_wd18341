@@ -64,8 +64,9 @@
                                         <tr>
                                             <td><?= $Binh_luan['id'] ?></td>
                                             <td><?= $Binh_luan['noidung'] ?></td>
-                                            <td><?= $arrayUserIdName[$Binh_luan['iduser']] ?></td>
-                                            <td><?= $arraySanPhamIdName[$Binh_luan['idpro']] ?></td>
+                                            <td><?= $Binh_luan['iduser'] ?></td>
+                                            <td><?= $Binh_luan['idpro'] ?></td>
+                                            
                                             <td><?= $Binh_luan['ngaybinhluan'] ?></td>
                                             <td>
                                                 <a href="/admin/binhluan/update?id=<?= $Binh_luan['id'] ?>" class="btn btn-primary btn-sm">Cập nhật</a>

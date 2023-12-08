@@ -4,14 +4,17 @@ namespace Ductong\BaseMvc\Models;
 
 use Ductong\BaseMvc\Model;
 
-class User extends Model {
-    protected $table = 'taikhoan';
+class User extends Model
+{
+    protected $table = 'users';
     protected $columns = [
         'name',
         'email',
         'address',
         'password',
+        'is_admin',
     ];
+
     public function getUserByEmailPassword($email, $password)
     {
         $sql = "
