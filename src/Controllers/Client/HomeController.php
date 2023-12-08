@@ -3,6 +3,7 @@
 namespace Ductong\BaseMvc\Controllers\Client;
 
 use Ductong\BaseMvc\Controller;
+use Ductong\BaseMvc\Models\Product;
 
 class HomeController extends Controller
 {
@@ -10,6 +11,15 @@ class HomeController extends Controller
         Đây là hàm hiển thị danh sách user
     */
     public function index() {
-        $this->render('client/home');
+        $getLatestLimit10 = (new Product)->getLatestLimit10();
+
+        $this->render('home', ['getLatestLimit10' => $getLatestLimit10]);
     }
+    
+
+    public function detail(){
+        $product = (new Product())->findOne($_GET["id"]);
+        $this->render('detailProducts',['product'=>$product ]);
+    }
+    
 }

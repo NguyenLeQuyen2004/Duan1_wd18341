@@ -7,6 +7,9 @@ use Ductong\BaseMvc\Models\Category;
 
 class CategoryController extends Controller {
 
+    
+    
+    
     /* Lấy danh sách */
     public function index() {
         $categories = (new Category())->all();

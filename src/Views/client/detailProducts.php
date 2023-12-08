@@ -1,26 +1,11 @@
-<!-- Page Info -->
-<div class="page-info-section page-info">
-		<div class="container">
-			<div class="site-breadcrumb">
-				<a href="">Home</a> / 
-				<a href="">Sales</a> / 
-				<a href="">Bags</a> / 
-				<span>Shoulder bag</span>
-			</div>
-			<img src="img/page-info-art.png" alt="" class="page-info-art">
-		</div>
-	</div>
-	<!-- Page Info end -->
-
 
 	<!-- Page -->
 	<div class="page-area product-page spad">
 		<div class="container">
-		
 			<div class="row">
 				<div class="col-lg-6">
 					<figure>
-						<img class="product-big-img" src="img/product/1.jpg" alt="">
+						<img class="product-big-img" src="<?=$product['img']?>" alt="">
 					</figure>
 					<div class="product-thumbs">
 						<div class="product-thumbs-track">
@@ -32,11 +17,10 @@
 					</div>
 				</div>
 				<div class="col-lg-6">
-					<div class="product-content">
-					
-						<p><?=$product['name'] ?></p>
+					<div class="product-content" >
+						<h2><?=$product['name']?></h2>
 						<div class="pc-meta">
-							<h4 class="price">$19.50</h4>
+							<h4 class="price"><?=$product['price']?></h4>
 							<div class="review">
 								<div class="rating">
 									<i class="fa fa-star"></i>
@@ -104,7 +88,7 @@
 						<div class="tab-content">
 							<!-- single tab content -->
 							<div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
-								<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
+								<p><?=$product['description']?></p>
 							</div>
 							<div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="tab-2">
 								<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
@@ -119,6 +103,33 @@
 			<div class="text-center rp-title">
 				<h5>Related products</h5>
 			</div>
+			<div class="row">
+				<div class="col-lg-3">
+					<div class="product-item">
+					<!-- <?php foreach ($getAllByCategoryID as $item) : ?>
+						<figure>
+                            <img src="<?= $item['p_img'] ?>" alt="">
+                            <div class="pi-meta">
+                                <div class="pi-m-left">
+                                    <img src="/giaodien_USER/theplaza-master/img/icons/eye.png" alt="">
+                                    <p>quick view</p>
+                                </div>
+                                <div class="pi-m-right">
+                                    <img src="/giaodien_USER/theplaza-master/img/icons/heart.png" alt="">
+                                    <p>save</p>
+                                </div>
+                            </div>
+                        </figure>
+                        <div class="product-info">
+                            <h6><a href="/detail?id=<?=$item['p_id']?>"><?= $item['p_name'] ?></a></h6>
+                            <p><?= number_format($item['p_price']) ?></p>
+
+                        </div>
+						<?php endforeach; ?> -->
+					</div>
+				</div>
+			</div>
+			
 		</div>
 	</div> 
 	<!-- Page end -->

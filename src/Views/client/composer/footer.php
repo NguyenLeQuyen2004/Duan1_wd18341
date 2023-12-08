@@ -7,11 +7,11 @@
 						<img src="img/logo.png" class="footer-logo" alt="">
 						<p>Donec vitae purus nunc. Morbi faucibus erat sit amet congue mattis. Nullam fringilla faucibus urna, id dapibus erat iaculis ut. Integer ac sem.</p>
 						<div class="cards">
-							<img src="img/cards/5.png" alt="">
-							<img src="img/cards/4.png" alt="">
-							<img src="img/cards/3.png" alt="">
-							<img src="img/cards/2.png" alt="">
-							<img src="img/cards/1.png" alt="">
+							<img src="/giaodien_USER/theplaza-master/img/cards/5.png" alt="">
+							<img src="/giaodien_USER/theplaza-master/img/cards/4.png" alt="">
+							<img src="/giaodien_USER/theplaza-master/img/cards/3.png" alt="">
+							<img src="/giaodien_USER/theplaza-master/img/cards/2.png" alt="">
+							<img src="/giaodien_USER/theplaza-master/img/cards/1.png" alt="">
 						</div>
 					</div>
 				</div>
@@ -82,12 +82,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 
 	<!--====== Javascripts & Jquery ======-->
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/mixitup.min.js"></script>
-	<script src="js/sly.min.js"></script>
-	<script src="js/jquery.nicescroll.min.js"></script>
-	<script src="js/main.js"></script>
+	<script src="/giaodien_USER/theplaza-master/js/jquery-3.2.1.min.js"></script>
+	<script src="/giaodien_USER/theplaza-master/js/bootstrap.min.js"></script>
+	<script src="/giaodien_USER/theplaza-master/js/owl.carousel.min.js"></script>
+	<script src="/giaodien_USER/theplaza-master/js/mixitup.min.js"></script>
+	<script src="/giaodien_USER/theplaza-master/js/sly.min.js"></script>
+	<script src="/giaodien_USER/theplaza-master/js/jquery.nicescroll.min.js"></script>
+	<script src="/giaodien_USER/theplaza-master/js/main.js"></script>
     </body>
 </html>
